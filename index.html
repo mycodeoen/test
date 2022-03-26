@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            color: blueviolet;
+            background-color: wheat;
+            /* border: 1px solid red; */
+        }
+        #a1{
+            color: blueviolet;
+        }
+        a:hover{
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+            
+        }
+        #a1:hover{
+            font-weight: bold;
+            color: aqua;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #ul-contanier {
+            color: wheat;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        #ul1-contanier {
+            display: none;
+        }
+
+        #li3 {
+            display: none;
+            float: left;
+            /* border: 1px solid red; */
+        }
+
+        li {
+            text-decoration: none;
+            list-style: none;
+            /* width: 100px;
+            height: 40px; */
+        }
+
+        ul {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        #li2 {
+            display: none;
+            /* border: 1px solid red; */
+        }
+
+        #li1:hover #li2 {
+            display: block;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: lightblue;
+
+        }
+
+        #li2:hover #ul2 {
+            display: block;
+
+        }
+
+        #ul2 {
+            display: none;
+            float: right;
+        }
+
+        #div2 {
+            text-align: center;
+        }
+
+        #div1 {
+            background-color: skyblue;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #li4 {
+            color: ghostwhite;
+            /* border: 1px solid red; */
+        }
+
+        #div-contanier {
+            color: rebeccapurple;
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+        }
+
+        #p1 {
+            color: black;
+            background-color: wheat;
+        }
+        #p2{
+            width: 160px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        body{
+            background-color: aqua;
+        }
+        h1{
+            color: brown;
+            background-color: chartreuse;
+        }
+        #page{
+       text-align: center;
+     }
+     #pagea{
+       background-color: aqua;
+       border: 2px solid saddlebrown;
+       font-size: 20px;
+
+     }
+     #pagea:hover{
+        background-color: wheat;
+        font-size: large;
+        font-weight: bold;
+        border: 2px solid white;
+     }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <ul id="ul-contanier">
+            <li id="li1"><p id="p2"><a href="#" id="a1">主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a> </p> </li>
+            <li id="li1"><p id="p2">
+                {% if not usernow %}
+                  <a href="{{url_for('login')}}" id="a1">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</a> 
+                {% else %}
+                  <a>{{usernow}},你好!</a>
+                {% endif %}
+            </p></li>
+            <li id="li1">
+                {% if not usernow %}
+                <p id="p2"><a onclick="fundo()" id="a1">代码编写</a></p>
+                <script>
+                    function fundo() {
+                            alert('请先登录！');
+                        }
+                </script>
+                {% else %}
+                <p id="p2"><a href="{{url_for('issue')}}" id="a1">代码编写</a></p>
+                {% endif %}
+            </li>
+            <li id="li1">
+                <p id="p2"> <a href="{{url_for('material')}}" id="a1">资料查询</a> </p>
+            </li>
+            <li id="li1">
+                <p id="p2">人工智能</p>
+                <ul id="ul1">
+                    <li id="li2"><a href="https://tensorflow.google.cn/">深度学习</a></li>
+                    <li id="li2"><a href="https://news.mit.edu/topic/machine-learning?from=www.mlhub123.com">机器学习</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="li1">
+                <p id="p2">资料查询</p>
+                <ul id="ul1">
+                    <li id="li2"><a href="https://www.baidu.com">百度</a></li>
+                </ul>
+            </li>
+            <li id="li1">
+                <p id="p2">学习网站</p>
+                <ul id="ul1">
+                    <li id="li2"><a href="https://www.csdn.net/">csdn</a></li>
+                </ul>
+            </li>
+            <li id="li1">
+                <p id="p2">娱乐网站</p>
+                <ul id="ul1">
+                    <li id="li2">
+                        <div id="div-contanier">
+                            <p id="p1">音乐</p>
+                            <ul id="ul2">
+                                <li id="li4"><a href="https://music.163.com/">网易云</a></li>
+                                <li id="li4"><a href="http://www.kugou.com/">酷狗</a></li>
+                                <li id="li4"><a href="https://y.qq.com/">QQ音乐</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="li2">
+
+                        <div id="div-contanier">
+                            <p id="p1">影视</p>
+                            <ul id="ul2">
+                                <li id="li4"><a href="https://v.qq.com/">腾讯视频</a></li>
+                                <li id="li4"><a href="https://www.iqiyi.com/">爱奇艺</a></li>
+                                <li id="li4"><a href="http://www.fun.tv/">风行视频</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li id="li1">
+                <p id="p2">数据网站</p>
+                <ul id="ul1">
+                    <li id="li2"><a href="https://www.baidu.com">百度</a></li>
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="div2">
+        <h1>最新人工智能资讯</h1>
+        {% for row in rows %}
+         <h2>{{row.h1content}}</h2>        
+         <a href="{{row.hrefcontent}}"><p>{{row.pcontent}}</p></a>
+         {% endfor %}
+
+    </div>
+    <hr style="background-color: red;height: 2px;margin: 4px 0px;">
+    <div id="page">
+        <form action="{{url_for('fenye')}}" method="post">
+            <input type="text" hidden='hidden' value="{{nowpage}}" name="nowpage">
+            <input type="submit" id="pagea" value="上一页" name="done">
+            <input type="submit" id="pagea" value="下一页" name='done'>
+        </form>
+    </div>
+</body>
+
+</html>
